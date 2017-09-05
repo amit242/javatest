@@ -10,11 +10,7 @@ pipeline {
     }
     post {
         success {
-            trigger('TestPipeline') {
-                parameters {
-                    currentBuild()
-                }
-            }
+            build job: 'TestPipeline', propagate: false, wait: false
         }
         always {
             deleteDir()
