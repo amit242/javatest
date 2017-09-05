@@ -10,7 +10,9 @@ pipeline {
     }
     post {
         success {
-            build job: 'TestPipeline', propagate: false, wait: false
+            script {
+                build job: 'TestPipeline', propagate: false, wait: false
+            }
         }
         always {
             deleteDir()
